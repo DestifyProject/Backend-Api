@@ -1,5 +1,6 @@
 const express = require("express");
 const { dbConnection } = require("./db/config.js");
+
 // Initialize server
 const app = express();
 
