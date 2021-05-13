@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const { dbConnection } = require("./db/config.js");
 
@@ -8,10 +9,10 @@ const app = express();
 dbConnection();
 
 // Routes
-app.get("/", (req, res) => {
+app.get("/", (_, res) => {
   res.status(200).json({ ok: true, message: "Principal route" });
 });
 
-app.listen(3000, () => {
-  console.log("Server runnig in port 3000!");
+app.listen(process.env.PORT, () => {
+  console.log(`Server up in http://localhost:${process.env.PORT}`);
 });
